@@ -17,7 +17,7 @@ def train():
     # initiating model
     model = NeuralNerwork()
     # initiating Stochastic Gradient Descent to optimize parameters
-    optimizer = torch.optim.SGD(model.parameters(), lr=config.LEARNING_RATE)
+    optimizer = torch.optim.Adam(model.parameters(), lr=config.LEARNING_RATE)
 
     best_accuracy = 0
     for epochs in range(config.EPOCHS):
@@ -26,12 +26,11 @@ def train():
         outputs, targets = engine.eval_fn(dataloader, model)
         outputs = np.array(outputs) >= 0.5
         # calculating accuracy score
-        accuracy = roc_auc_score(targets, outputs)
-        print(f"Epoch:{epochs+1}/{config.EPOCHS}, ROC AUC:{accuracy:.4f}")
-        if accuracy > best_accuracy:
+        roc_auc = roc_auc_score(targets, outputs)
+        print(f"Epoch:{epochs+1}/{config.EPOCHS}, ROC AUC:{roc_auc:.4f}")
+        if roc_auc > best_accuracy:
             # save parameters into model.bin
             torch.save(model.state_dict(), config.MODEL_PATH)
-            best_accuracy = accuracy
 
 
 if __name__ == "__main__":
