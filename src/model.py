@@ -14,7 +14,3 @@ class NeuralNerwork(nn.Module):
         x = F.relu(self.fc1(x))
         x = F.relu(self.fc2(x))
         return self.sigmoid(self.fc3(x))
-
-
-# model = NeuralNerwork()
-# print(model)

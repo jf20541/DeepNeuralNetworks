@@ -35,15 +35,12 @@ NeuralNerwork(
 
 ## Output
 ```bash
-Epoch:7/15, ROC AUC:0.5000
-Epoch:8/15, ROC AUC:0.5020
-Epoch:9/15, ROC AUC:0.5432
-Epoch:10/15, ROC AUC:0.5934
-Epoch:11/15, ROC AUC:0.6463
-Epoch:12/15, ROC AUC:0.6875
-Epoch:13/15, ROC AUC:0.7168
-Epoch:14/15, ROC AUC:0.7255
-Epoch:15/15, ROC AUC:0.7262
+Epoch:10/15, ROC AUC:0.8565
+Epoch:11/15, ROC AUC:0.8615
+Epoch:12/15, ROC AUC:0.8684
+Epoch:13/15, ROC AUC:0.8680
+Epoch:14/15, ROC AUC:0.8708
+Epoch:15/15, ROC AUC:0.8733
 ```
 
 
