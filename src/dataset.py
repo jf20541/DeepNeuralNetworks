@@ -5,7 +5,7 @@ import pandas as pd
 import numpy as np
 
 
-# inheret function from dataset class torch
+# # inheret function from dataset class torch
 class HotelDataSet(Dataset):
     # data loading
     def __init__(self):
@@ -15,10 +15,10 @@ class HotelDataSet(Dataset):
         self.y = torch.from_numpy(xy[:, [-1]])
         self.len = xy.shape[0]
 
-    # return item on the index
-    def __getitem__(self, idx):
-        return self.x[idx], self.y[idx]
-
     # return data length
     def __len__(self):
         return self.len
+
+    # return item on the index
+    def __getitem__(self, idx):
+        return self.x[idx], self.y[idx]
