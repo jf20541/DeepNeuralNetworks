@@ -23,7 +23,6 @@ def train_fn(dataloader, model, optimizer):
         # optimizer iterate over all parameters (updates parameters)
         optimizer.step()
 
-
 def eval_fn(dataloader, model):
     # Set module in evaluation mode
     model.eval()
