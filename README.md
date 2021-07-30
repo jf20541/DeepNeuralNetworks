@@ -1,4 +1,4 @@
-# NeuralNetworks
+# DeepNeuralNetworks
 
 ## Objective
 
