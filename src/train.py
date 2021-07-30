@@ -5,6 +5,8 @@ from dataset import HotelDataSet
 from model import NeuralNerwork
 import engine
 import config
+import pandas as pd
+from sklearn.model_selection import train_test_split
 
 
 def train():
