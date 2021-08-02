@@ -1,7 +1,7 @@
 # DeepNeuralNetworks
 
 ## Objective
-Use Artificial Neural Network for a Binary Classification problem by predicting Hotel Bookings Data guests would attend or cancel their reservation. The evaluation metric for the model is **ROC-AUC** since the target values are skewed. The criterion that measures the error between the target and the output values is **Binary Cross Entropy**. The optimizer is **Adam** which is a stochastic gradient descent method that is based on adaptive estimation of first-order and second-order moments.\
+Use Artificial Neural Network for a Binary Classification problem by predicting Hotel Bookings Data guests would attend or cancel their reservation. The evaluation metric for the model is **ROC-AUC** since the target values are skewed. The criterion that measures the error between the target and the output values is **Binary Cross Entropy**. The optimizer is **Adam** which is a stochastic gradient descent method that is based on adaptive estimation of first-order and second-order moments.
 
 The model allows the hospitality industry to find the optimal frontier of services based on attended guests such as food requirements, seasonal patterns, price optimization, availability, employment efficiencies, targeted country marketing, etc.
 
@@ -34,7 +34,7 @@ Epoch:14/15, Train ROC-AUC: 0.9007, Eval ROC-AUC: 0.8708
 Epoch:15/15, Train ROC-AUC: 0.9021, Eval ROC-AUC: 0.8733
 ```
 
-## Model
+## Model's Architecture
 ```
 NeuralNerwork(
   (fc1): Linear(in_features=30, out_features=15, bias=True)
@@ -45,7 +45,13 @@ NeuralNerwork(
 )
 ```  
 
-## Parameters
-- `Epochs:` 
-- `Learning Rate:`
-- `Batch Size:`
+## Terms
+- `Epochs:` Number of complete passes of the entire training dataset through the Neural Network
+- `Learning Rate:` The step size at each iteration while moving toward a minimum of a loss function
+- `Batch Size:` Number of training examples utilized in one forward/backward pass
+- `ROC AUC Score:` ROC is a probability curve and AUC represents the degree or measure of separability
+- `Adam Optimizer:` A stochastic gradient descent method that is based on adaptive estimation of first-order and second-order moments
+- `ReLU:` A non-linear activation function that is used in multi-layer neural networks 
+- `Sigmoid:` A activation function that maps the entire number line into a small range such as between 0 and 1
+- `Linear:` Applies a linear transformation to the incoming data
+- `DataLoader:` Iterates through all values and returns in batches.
