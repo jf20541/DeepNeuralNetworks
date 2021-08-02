@@ -55,3 +55,11 @@ NeuralNerwork(
 - `Sigmoid:` A activation function that maps the entire number line into a small range such as between 0 and 1
 - `Linear:` Applies a linear transformation to the incoming data
 - `DataLoader:` Iterates through all values and returns in batches.
+
+
+## Data
+  ```
+  Binary Targets [0,1]: ['is_canceled']
+  Categorical Features:['hotel','arrival_date_month','meal','market_segment','distribution_channel','reserved_room_type','deposit_type','customer_type','country']
+  Numerical Features ['lead_time','arrival_date_year','arrival_date_week_number','arrival_date_day_of_month','is_repeated_guest','previous_cancellations','previous_bookings_not_canceled','booking_changes','agent','days_in_waiting_list','adr','required_car_parking_spaces','total_of_special_requests']
+  ```
