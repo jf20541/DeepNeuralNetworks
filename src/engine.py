@@ -23,7 +23,7 @@ class Engine:
             # compute forward pass through the model
             outputs = self.model(features)
             # compute loss Binary Cross Entropy function
-            loss = loss_fn(outputs, targets)
+            loss = self.loss_fn(outputs, targets)
             # set gradients to 0
             self.optimizer.zero_grad()
             # compute gradient of loss w.r.t all the parameters
