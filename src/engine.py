@@ -1,4 +1,5 @@
 import torch.nn as nn
+import torch
 
 
 class Engine:
@@ -9,7 +10,7 @@ class Engine:
         
     # binary cross entroy (1, 0)
     def loss_fn(self, outputs, targets):
-        return nn.BCELoss()(outputs, targets)
+        return torch.nn.BCELoss()(outputs, targets)
 
     
     # training function for the train_loader
