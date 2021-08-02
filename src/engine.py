@@ -1,15 +1,14 @@
 import torch
-import torch.nn as nn
-
-# binary cross entroy (1, 0)
-def loss_fn(outputs, targets):
-    return nn.BCELoss()(outputs, targets)
 
 
 class Engine:
     def __init__(self, model, optimizer):
         self.model = model
         self.optimizer = optimizer
+
+    # binary cross entroy (1, 0)
+    def loss_fn(self, outputs, targets):
+        return torch.nn.BCELoss()(outputs, targets)
 
     # training function for the train_loader
     def train_fn(self, dataloader):
@@ -22,7 +21,7 @@ class Engine:
             # compute forward pass through the model
             outputs = self.model(features)
             # compute loss Binary Cross Entropy function
-            loss = loss_fn(outputs, targets)
+            loss = self.loss_fn(outputs, targets)
             # set gradients to 0
             self.optimizer.zero_grad()
             # compute gradient of loss w.r.t all the parameters
