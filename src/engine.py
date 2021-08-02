@@ -1,40 +1,48 @@
 import torch
-
-# criterion that measures Binary Cross Entropy between (outputs, targets)
-def loss_fn(outputs, targets):
-    return torch.nn.BCELoss()(outputs, targets.view(-1, 1))
+import torch.nn as nn
 
 
-def train_fn(dataloader, model, optimizer):
-    # training the model
-    model.train()
-    for i, (features, targets) in enumerate(dataloader):
-        # wrapping tensor values in Variables
-        features = torch.autograd.Variable(features)
-        targets = torch.autograd.Variable(targets)
-        # compute forward pass through the model
-        outputs = model(features)
-        # compute loss Binary Cross Entropy
-        loss = loss_fn(outputs, targets)
-        # set gradients to 0
-        optimizer.zero_grad()
-        # compute gradient of loss w.r.t all the parameters
-        loss.backward()
-        # optimizer iterate over all parameters (updates parameters)
-        optimizer.step()
+class Engine:
+    def __init__(self, model, optimizer):
+        self.model = model
+        self.optimizer = optimizer
 
-def eval_fn(dataloader, model):
-    # Set module in evaluation mode
-    model.eval()
-    fin_targets = []
-    fin_outputs = []
-    # disabling tracking of gradients
-    with torch.no_grad():
-        for i, (features, targets) in enumerate(dataloader):
-            features = torch.autograd.Variable(features)
-            targets = torch.autograd.Variable(targets)
-            outputs = model(features)
-            # append to empty list and conver to numpy array  to list
-            fin_targets.extend(targets.cpu().detach().numpy().tolist())
-            fin_outputs.extend(outputs.cpu().detach().numpy().tolist())
-    return fin_outputs, fin_targets
+    # binary cross entroy (1, 0)
+    @staticmethod
+    def loss_fn(outputs, targets):
+        return nn.BCELoss()(outputs, targets)
+
+    # training function for the train_loader
+    def train_fn(self, dataloader):
+        self.model.train()
+        for data in dataloader:
+            # define features and target tensors
+            features = data["features"]
+            targets = data["targets"]
+            # compute forward pass through the model
+            outputs = self.model(features)
+            # compute loss Binary Cross Entropy function
+            loss = self.loss_fn(outputs, targets)
+            # set gradients to 0
+            self.optimizer.zero_grad()
+            # compute gradient of loss w.r.t all the parameters
+            loss.backward()
+            # optimizer iterate over all parameters (updates parameters)
+            self.optimizer.step()
+
+    # evaluation function for the test_loader
+    def eval_fn(self, dataloader):
+        self.model.eval()
+        # initiate final target and outputs empty list
+        final_targets = []
+        final_outputs = []
+        # disabling tracking of gradients
+        with torch.no_grad():
+            for data in dataloader:
+                features = data["features"]
+                targets = data["targets"]
+                outputs = self.model(features)
+                # append to empty list and conver to numpy array  to list
+                final_targets.extend(targets.cpu().detach().numpy().tolist())
+                final_outputs.extend(outputs.cpu().detach().numpy().tolist())
+        return final_targets, final_outputs

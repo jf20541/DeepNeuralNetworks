@@ -16,8 +16,8 @@ def train():
         dataset=dataset, batch_size=config.TRAIN_BATCH_SIZE, shuffle=True
     )
 
-    # initiating model
-    model = NeuralNerwork()
+    #     # initiating model
+    model = NeuralNerwork(nfeatures=30, ntargets=1)
     # initiating Stochastic Gradient Descent to optimize parameters
     optimizer = torch.optim.Adam(model.parameters(), lr=config.LEARNING_RATE)
 

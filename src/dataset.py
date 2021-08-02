@@ -5,26 +5,7 @@ import pandas as pd
 import numpy as np
 
 
-# # inheret function from dataset class torch
-# class HotelDataSet(Dataset):
-#     # data loading
-#     def __init__(self):
-#         xy = pd.read_csv(config.TRAINING_FILE).values
-#         xy = xy.astype(np.float32)
-#         self.x = torch.from_numpy(xy[:, :-1])
-#         self.y = torch.from_numpy(xy[:, [-1]])
-#         self.len = xy.shape[0]
-
-#     # return data length
-#     def __len__(self):
-#         return self.len
-
-#     # return item on the index
-#     def __getitem__(self, idx):
-#         return self.x[idx], self.y[idx]
-
-
-class HotelDataSet2(Dataset):
+class HotelDataSet:
     # data loading
     def __init__(self, features, targets):
         self.features = features
@@ -37,6 +18,14 @@ class HotelDataSet2(Dataset):
     # return item on the index
     def __getitem__(self, idx):
         return {
-            "x": torch.tensor(self.features[idx], dtype=torch.float),
-            "y": torch.tensor(self.targets[idx], dtype=torch.float),
+            "features": torch.tensor(self.features[idx, :], dtype=torch.float),
+            "targets": torch.tensor(self.targets[idx], dtype=torch.float),
         }
+
+
+"""
+Training Set: x_train (features), x_test (targets)
+Testing Set: y_train (features), y_test (targets)
+"""
+# print(ytrain.shape, xtrain.shape) (82438, 1) (82438, 31)
+# print(yvalid.shape, xvalid.shape) (20610, 1) (20610, 31)
