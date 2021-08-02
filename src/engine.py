@@ -1,9 +1,5 @@
 import torch.nn as nn
 
-# binary cross entroy (1, 0)
-def loss_fn(outputs, targets):
-    return nn.BCELoss()(outputs, targets)
-
 
 class Engine:
     def __init__(self, model, optimizer):
