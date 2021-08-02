@@ -37,7 +37,7 @@ def train():
     optimizer = torch.optim.Adam(model.parameters(), lr=config.LEARNING_RATE)
     eng = Engine(model, optimizer)
 
-    best_accuracy = 0
+    best_accuracy = np.inf
     for epochs in range(config.EPOCHS):
         # initiating training and evaluation function
         train_targets, train_outputs = eng.train_fn(train_loader)
