@@ -23,11 +23,12 @@
 ## Model
 ```
 NeuralNerwork(
-  (fc1): Linear(in_features=30, out_features=10, bias=True)
-  (fc2): Linear(in_features=10, out_features=8, bias=True)
-  (fc3): Linear(in_features=8, out_features=4, bias=True)
-  (fc4): Linear(in_features=4, out_features=1, bias=True)
-  (sigmoid): Sigmoid())
+  (fc1): Linear(in_features=30, out_features=15, bias=True)
+  (fc2): Linear(in_features=15, out_features=10, bias=True)
+  (fc3): Linear(in_features=10, out_features=1, bias=True)
+  (dropout): Dropout(p=0.2, inplace=False)
+  (sigmoid): Sigmoid()
+)
 ```  
 
 ## Metric & Mathematics
