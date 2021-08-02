@@ -1,4 +1,3 @@
-import torch
 import torch.nn as nn
 
 # binary cross entroy (1, 0)
@@ -10,7 +9,13 @@ class Engine:
     def __init__(self, model, optimizer):
         self.model = model
         self.optimizer = optimizer
+        
+        
+    # binary cross entroy (1, 0)
+    def loss_fn(self, outputs, targets):
+        return nn.BCELoss()(outputs, targets)
 
+    
     # training function for the train_loader
     def train_fn(self, dataloader):
         self.model.train()
