@@ -43,7 +43,7 @@ def train():
 
     eng = Engine(model, optimizer)
 
-    best_accuracy = np.inf
+    best_metric = np.inf
     for epochs in range(config.EPOCHS):
         # initiating training and evaluation function
         train_targets, train_outputs = eng.train_fn(train_loader)
@@ -56,7 +56,7 @@ def train():
         print(
             f"Epoch:{epochs+1}/{config.EPOCHS}, Train ROC-AUC: {train_metric:.4f}, Eval ROC-AUC: {eval_metric:.4f}"
         )
-        if eval_metric > best_accuracy:
+        if eval_metric > best_metric:
             # save parameters into model.bin
             torch.save(model.state_dict(), config.MODEL_PATH)
 
