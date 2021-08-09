@@ -14,7 +14,8 @@ class Engine:
     def train_fn(self, dataloader):
         self.model.train()
         final_targets, final_outputs = [], []
-        for data in dataloader:
+        # for data in dataloader:
+        for batch_idx, data in enumerate(dataloader):
             # define features and target tensors
             features = data["features"]
             targets = data["targets"]
@@ -40,7 +41,8 @@ class Engine:
         final_targets, final_outputs = [], []
         # disabling tracking of gradients
         with torch.no_grad():
-            for data in dataloader:
+            # for data in dataloader:
+            for batch_idx, data in enumerate(dataloader):
                 features = data["features"]
                 targets = data["targets"]
                 outputs = self.model(features)
