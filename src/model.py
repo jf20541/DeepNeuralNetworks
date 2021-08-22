@@ -3,12 +3,17 @@ import torch.nn.functional as F
 
 
 class NeuralNerwork(nn.Module):
-    def __init__(self, nfeatures, ntargets):
+    def __init__(self, n_features, n_targets):
         super(NeuralNerwork, self).__init__()
-        self.fc1 = nn.Linear(nfeatures, 15)
+        # input layer with n_features (nodes) and 15 nodes for 2nd layer
+        self.fc1 = nn.Linear(n_features, 15)
+        # 15 nodes and next hidden layer 1ith 10 nodes
         self.fc2 = nn.Linear(15, 10)
-        self.fc3 = nn.Linear(10, ntargets)
+        # 10 nodes and next n_targets nodes
+        self.fc3 = nn.Linear(10, n_targets)
+        # add drop out to avoid overfitting on 2 hidden layers
         self.dropout = nn.Dropout(0.20)
+        # sigmoid function as last yaer
         self.sigmoid = nn.Sigmoid()
 
     def forward(self, x):

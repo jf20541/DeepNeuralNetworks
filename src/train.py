@@ -12,7 +12,7 @@ import config
 def train():
     df = pd.read_csv(config.TRAINING_FILE)
 
-    # define target and features values as numpy arrays
+    # define target and features as numpy arrays
     targets = df[["is_canceled"]].values
     features = df.drop("is_canceled", axis=1).values
 
@@ -46,18 +46,17 @@ def train():
     best_metric = np.inf
     for epochs in range(config.EPOCHS):
         # initiating training and evaluation function
-        train_targets, train_outputs = eng.train_fn(train_loader)
+        train_targets, train_outputs = eng.train_fn(train_loader, scheduler)
         eval_targets, eval_outputs = eng.eval_fn(test_loader)
         eval_outputs = np.array(eval_outputs) >= 0.5
-        # calculating accuracy score
+        # calculating roc_auc_score score on trainging and testing set
         train_metric = roc_auc_score(train_targets, train_outputs)
-        scheduler.step(train_metric)
         eval_metric = roc_auc_score(eval_targets, eval_outputs)
         print(
             f"Epoch:{epochs+1}/{config.EPOCHS}, Train ROC-AUC: {train_metric:.4f}, Eval ROC-AUC: {eval_metric:.4f}"
         )
         if eval_metric > best_metric:
-            # save parameters into model.bin
+            # save parameters/weights into model.bin
             torch.save(model.state_dict(), config.MODEL_PATH)
 
 
