@@ -22,3 +22,13 @@ class NeuralNerwork(nn.Module):
         x = F.relu(self.fc2(x))
         x = self.dropout(x)
         return self.sigmoid(self.fc3(x))
+
+
+# import pandas as pd
+
+
+# df = pd.read_csv('../inputs/train.csv')
+# print(df.head())
+
+# df1 = pd.read_csv('../inputs/hotel_mutual_info.csv')
+# print(df1.head())

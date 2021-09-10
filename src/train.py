@@ -36,17 +36,12 @@ def train():
     model = NeuralNerwork(x_train.shape[1], y_train.shape[1])
     optimizer = torch.optim.Adam(model.parameters(), lr=config.LEARNING_RATE)
 
-    # reduce learning rate when a metric has stopped improving.
-    scheduler = torch.optim.lr_scheduler.ReduceLROnPlateau(
-        optimizer, mode="min", patience=5, factor=0.3, verbose=True
-    )
-
     eng = Engine(model, optimizer)
 
     best_metric = np.inf
     for epochs in range(config.EPOCHS):
         # initiating training and evaluation function
-        train_targets, train_outputs = eng.train_fn(train_loader, scheduler)
+        train_targets, train_outputs = eng.train_fn(train_loader)
         eval_targets, eval_outputs = eng.eval_fn(test_loader)
         eval_outputs = np.array(eval_outputs) >= 0.5
         # calculating roc_auc_score score on trainging and testing set

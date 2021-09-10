@@ -1,4 +1,7 @@
-TRAINING_FILE = "../inputs/train.csv"
+TRAINING_FILE_ALL = "../inputs/train.csv"
+TRAINING_FILE_FT = "../inputs/hotel_feat_importance.csv"
+TRAINING_FILE_CHI2 = "../inputs/hotel_chi2.csv"
+TRAINING_FILE_IG = "../inputs/hotel_mutual_info.csv"
 TRAIN_BATCH_SIZE = 512
 TEST_BATCH_SIZE = 256
 EPOCHS = 15
