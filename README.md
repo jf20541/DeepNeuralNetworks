@@ -1,7 +1,7 @@
 # DeepNeuralNetworks
 
 ## Objective
-Predict if Hotel Bookings guests would attend or cancel their reservations, by using an **Artificial Neural Network** for a binary classification target. Set **ROC-AUC** to evaluate the performance of the model, due to skewed target values. **Binary Cross Entropy** as the criterion that measures the error between the target and the output values. **Adam Optimizer** as the optimizer for training the model, which is a stochastic gradient descent method that is based on adaptive estimation of first-order and second-order moments.
+Predict if Hotel Bookings guests would attend or cancel their reservations (binary classification) by using an **Artificial Neural Networks**. Implement the ANN to seek the optimal performance based on the feature selection using Tree-Based Classifier, Fisher Score-ChiSquare Test, and Mutual Information in Classification. Set **ROC-AUC** to evaluate the performance of the model for the imbalanced dataset. **Binary Cross Entropy** as the criterion that measures the error between the target and the output values. Set **Adam Optimizer** as the optimizer for training the model.
 
 
 The model allows the hospitality industry to find the optimal frontier of services based on attended guests such as food requirements, seasonal patterns, price optimization, availability, employment efficiencies, targeted country marketing, etc.
