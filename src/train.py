@@ -10,7 +10,7 @@ import config
 
 
 def train():
-    df = pd.read_csv(config.TRAINING_FILE)
+    df = pd.read_csv(config.TRAINING_FILE_ALL)
 
     # define target and features as numpy arrays
     targets = df[["is_canceled"]].values
