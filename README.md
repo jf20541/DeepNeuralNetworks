@@ -9,19 +9,22 @@ The model allows the hospitality industry to find the optimal frontier of servic
 
 ## Repository File Structure
     ├── src          
-    │   ├── train.py             # Training the NN and evaluating, imports model.py, engine.py, dataset.py, config.py
-    │   ├── model.py             # Neural Networks architecture, inherits nn.Module
-    │   ├── engine.py            # Class Engine for Training, Evaluation, and Loss function 
-    │   ├── dataset.py           # Custom Dataset that return a paris of [input, label] as tensors
-    │   └── config.py            # Define path as global variable
+    │   ├── train.py                    # Training the NN and evaluating, imports model.py, engine.py, dataset.py, config.py
+    │   ├── model.py                    # Neural Networks architecture, inherits nn.Module
+    │   ├── engine.py                   # Class Engine for Training, Evaluation, and Loss function 
+    │   ├── dataset.py                  # Custom Dataset that return a paris of [input, label] as tensors
+    │   └── config.py                   # Define path as global variable
     ├── inputs
-    │   ├── hotel_bookings.csv   # Dataset for Hotel Bookings (not cleaned)
-    │   └── train.csv            # Cleaned Data and Featured Engineered 
+    │   ├── hotel_bookings.csv          # Dataset for Hotel Bookings (not cleaned)
+    │   ├── hotel_chi2.csv              # Hotel Bookings using Fisher Score-Chi2 feature selection 
+    │   ├── hotel_feat_importance.csv   # Hotel Bookings using feature importance (Tree Based) 
+    │   ├── hotel_mutual_info.csv       # Hotel Bookings using Information Gain-Mutual Information 
+    │   └── train.csv                   # Cleaned Data and Featured Engineered 
     ├── notebooks
-    │   └── hotel_booking.ipynb  # Exploratory Data Analysis and Feature Engineering
+    │   └── hotel_booking.ipynb         # Exploratory Data Analysis and Feature Engineering
     ├── models
-    │   └── model.bin            # Neural Networks parameters saved into model.bin 
-    ├── requierments.txt         # Packages used for project
+    │   └── model.bin                   # Neural Networks parameters saved into model.bin 
+    ├── requierments.txt                # Packages used for project
     └── README.md
     
 ## Output
