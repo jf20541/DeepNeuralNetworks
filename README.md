@@ -28,14 +28,21 @@ The model allows the hospitality industry to find the optimal frontier of servic
     └── README.md
     
 ## Output
-```bash
-       ....                   ....                  ....
-Epoch:10/15, Train ROC-AUC: 0.8904, Eval ROC-AUC: 0.8565
-Epoch:11/15, Train ROC-AUC: 0.8939, Eval ROC-AUC: 0.8615
-Epoch:12/15, Train ROC-AUC: 0.8967, Eval ROC-AUC: 0.8684
-Epoch:13/15, Train ROC-AUC: 0.8986, Eval ROC-AUC: 0.8680
-Epoch:14/15, Train ROC-AUC: 0.9007, Eval ROC-AUC: 0.8708
+**No Feature Selection**
+```
 Epoch:15/15, Train ROC-AUC: 0.9021, Eval ROC-AUC: 0.8733
+```
+**Feature Selection using Tree Based Classifier**
+```
+Epoch:15/15, Train ROC-AUC: 0.8745, Eval ROC-AUC: 0.7796
+```
+**Feature Selection using Fisher Score-ChiSquare Test**
+```
+Epoch:15/15, Train ROC-AUC: 0.8368, Eval ROC-AUC: 0.7521
+```
+**Feature Selection using Information Gain-Mutual Information in Classification**
+```
+Epoch:15/15, Train ROC-AUC: 0.8746, Eval ROC-AUC: 0.7843
 ```
 
 ## Model's Architecture
